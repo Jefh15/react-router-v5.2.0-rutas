@@ -8,6 +8,7 @@ import {
 
 import Contacto from './components/Contacto';
 import Inicio from './components/Inicio';
+import NoMatch from "./components/NoMatch";
 import Nosotros from './components/Nosotros';
 
 
@@ -26,7 +27,6 @@ function App() {
             // To --> la ruta que se va a redireccionar
             to="/"
             className="btn btn-danger mr-2"
-            activeClassName="active"
           >
             Inicio
           </Link>
@@ -35,7 +35,6 @@ function App() {
             // To --> la ruta que se va a redireccionar
             to="/nosotros"
             className="btn btn-danger mr-2"
-            activeClassName="active"
           >
             Nosotros
           </Link>
@@ -66,9 +65,13 @@ function App() {
           <Route path="/" exact>
             <Inicio />
           </Route>
+          {/* Ruta no reconocida, osea no coincide con ninguna */}
+          <Route path="*">
+            <NoMatch />
+          </Route>
         </Switch>
       </div>
-    </Router>
+    </Router >
   );
 }
 
