@@ -6,10 +6,13 @@ import {
   NavLink
 } from "react-router-dom"
 
+import Civilization from "./components/Civilization";
+import Civilizations from "./components/Civilizations";
 import Contacto from './components/Contacto';
 import Inicio from './components/Inicio';
 import NoMatch from "./components/NoMatch";
 import Nosotros from './components/Nosotros';
+
 
 
 function App() {
@@ -47,6 +50,15 @@ function App() {
           >
             Contacto
           </NavLink>
+          {/* NavLink ---> es porque le podemos agregar una clase aciva */}
+          <NavLink
+            // To --> la ruta que se va a redireccionar
+            to="/civilizations"
+            className="btn btn-danger mr-2"
+            activeClassName="active"
+          >
+            Civilization
+          </NavLink>
         </div>
         <hr />
         {/* CON EL SWITCH se carga el contenido dinamico */}
@@ -59,6 +71,14 @@ function App() {
           {/* segunda ruta dinamica */}
           <Route path="/nosotros">
             <Nosotros />
+          </Route>
+          {/* tercera ruta dinamica */}
+          <Route path="/civilization/:id">
+            <Civilization />
+          </Route>
+          {/* tercera ruta dinamica */}
+          <Route path="/civilizations">
+            <Civilizations />
           </Route>
           {/* exact --> para que funcione exactamente con la ruta raiz, recordar que el path raiz va a lo ultimo */}
           {/* ruta raiz */}
